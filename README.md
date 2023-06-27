@@ -26,16 +26,16 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
 
 ### Reproduce our results:
 run
-'''
+```
 python -m inference --dataset chexpert
-'''
+```
 or
-'''
+```
 python -m inference --dataset chestxray14
-'''
+```
 
 ### Run demo locally:
 run
-'''
+```
 python -m demo
-'''
+```
