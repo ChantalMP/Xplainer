@@ -41,9 +41,14 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
    ```
    
 3. Download data
+   
    CheXpert:
    - download data from https://stanfordaimi.azurewebsites.net/datasets/23c56a0d-15de-405b-87c8-99c30138950c
    - copy 'test_labels.csv' and the image folder 'test' into 'data/chexpert'
+  
+   ChestXRay14:
+   - use the script 'preprocess_chestxray14' to download the data
+   - copy 'images_jpg', 'test_list.txt' and 'Data_Entry_2017_v2020.csv' into 'data/chestxray14'
 
 ### Reproduce our results:
 run
