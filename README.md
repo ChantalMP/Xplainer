@@ -47,6 +47,7 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
    - copy 'test_labels.csv' and the image folder 'test' into 'data/chexpert'
   
    ChestXRay14:
+   - download data from 'https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345'
    - use the script 'preprocess_chestxray14' to download the data
    - copy 'images_jpg', 'test_list.txt' and 'Data_Entry_2017_v2020.csv' into 'data/chestxray14'
 
