@@ -26,7 +26,7 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
 }
 ```
 
-### Installation:
+### Setup:
 1. Clone this repository
    ```
    git clone https://github.com/ChantalMP/Xplainer
