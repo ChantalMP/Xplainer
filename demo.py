@@ -9,6 +9,9 @@ from model import InferenceModel
 
 
 def plot_bars(model_output):
+    # sort model_output by overall_probability
+    model_output = {k: v for k, v in sorted(model_output.items(), key=lambda item: item[1]['overall_probability'], reverse=True)}
+
     # Create a figure with as many subplots as there are diseases, arranged vertically
     fig, axs = plt.subplots(len(model_output), 1, figsize=(10, 5 * len(model_output)))
     # axs is not iterable if only one subplot is created, so make it a list
@@ -17,6 +20,8 @@ def plot_bars(model_output):
 
     for ax, (disease, data) in zip(axs, model_output.items()):
         desc_probs = list(data['descriptor_probabilities'].items())
+        # sort descending
+        desc_probs = sorted(desc_probs, key=lambda item: item[1], reverse=True)
 
         my_probs = [p[1] for p in desc_probs]
         min_prob = min(my_probs)
@@ -44,7 +49,11 @@ def plot_bars(model_output):
         ax.set_yticks([])
 
         # Add a title for the disease
-        ax.set_title(f"Probability of {disease} : {data['overall_probability']:.2f}")
+        if data['overall_probability'] >= 0.5:
+            ax.set_title(f"{disease} : probability of {data['overall_probability']:.2f}")
+        else:
+            ax.set_title(f"No {disease} : probability of {data['overall_probability']:.2f}")
+
         # make title larger and bold
         ax.title.set_fontsize(15)
         ax.title.set_fontweight(600)
@@ -97,25 +106,26 @@ def process_input(image_path, prompt_names: list, disease_name: str, descriptors
     return output
 
 
-if __name__ == '__main__':
-    # Define the Gradio interface
-    iface = gr.Interface(
-        fn=process_input,
-        inputs=[gr.inputs.Image(type="filepath"), gr.inputs.CheckboxGroup(
-            choices=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
-                     'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices',
-                     'Infiltration', 'Mass', 'Nodule', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia',
-                     'Custom'],
-            default=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
-                     'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices'],
-            label='Selct to use predefined disease descriptors. Select "Custom" to define your own observations.'),
-                gr.inputs.Textbox(lines=2, placeholder="Name of pathology for which you want to define custom observations", label='Pathology:'),
-                gr.inputs.Textbox(lines=2, placeholder="Add your custom (positive) observations separated by a new line"
-                                                       "\n Note: Each descriptor will automatically be embedded into our prompt format: There is/are (no) <observation> indicating <pathology>"
-                                                       "\n Example:\n\n Opacity\nPleural Effusion\nConsolidation"
-                                  , label='Custom Observations:')],
-        outputs=gr.outputs.Image(type="filepath")
-    )
+# Define the Gradio interface
+iface = gr.Interface(
+    fn=process_input,
+    examples = [['examples/enlarged_cardiomediastinum.jpg', ['Enlarged Cardiomediastinum'], '', ''],['examples/edema.jpg', ['Edema'], '', ''],
+                ['examples/support_devices.jpg', ['Custom'], 'Pacemaker', 'metalic object\nimplant on the left side of the chest\nimplanted cardiac device']],
+    inputs=[gr.inputs.Image(type="filepath"), gr.inputs.CheckboxGroup(
+        choices=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
+                 'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices',
+                 'Infiltration', 'Mass', 'Nodule', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia',
+                 'Custom'],
+        default=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
+                 'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices'],
+        label='Selct to use predefined disease descriptors. Select "Custom" to define your own observations.'),
+            gr.inputs.Textbox(lines=2, placeholder="Name of pathology for which you want to define custom observations", label='Pathology:'),
+            gr.inputs.Textbox(lines=2, placeholder="Add your custom (positive) observations separated by a new line"
+                                                   "\n Note: Each descriptor will automatically be embedded into our prompt format: There is/are (no) <observation> indicating <pathology>"
+                                                   "\n Example:\n\n Opacity\nPleural Effusion\nConsolidation"
+                              , label='Custom Observations:')],
+    outputs=gr.outputs.Image(type="filepath")
+)
 
-    # Launch the interface
-    iface.launch(share=True)
+# Launch the interface
+iface.launch()

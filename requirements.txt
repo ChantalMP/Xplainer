@@ -1,6 +1,5 @@
 scikit-learn
 transformers==4.17.0
-hi-ml-multimodal==0.1.2
 gradio==3.34.0
 pandas
 torch==1.13.0+cu116
