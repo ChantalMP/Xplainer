@@ -41,6 +41,9 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
    ```
    
 3. Download data
+   CheXpert:
+   - download data from https://stanfordaimi.azurewebsites.net/datasets/23c56a0d-15de-405b-87c8-99c30138950c
+   - copy 'test_labels.csv' and the image folder 'test' into 'data/chexpert'
 
 ### Reproduce our results:
 run
