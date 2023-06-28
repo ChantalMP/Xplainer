@@ -105,6 +105,10 @@ def process_input(image_path, prompt_names: list, disease_name: str, descriptors
 
     return output
 
+with open("article.md", "r") as f:
+    article = f.read()
+with open("description.md", "r") as f:
+    description = f.read()
 
 # Define the Gradio interface
 iface = gr.Interface(
@@ -118,12 +122,14 @@ iface = gr.Interface(
                  'Custom'],
         default=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
                  'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices'],
-        label='Selct to use predefined disease descriptors. Select "Custom" to define your own observations.'),
+        label='Select to use predefined disease descriptors. Select "Custom" to define your own observations.'),
             gr.inputs.Textbox(lines=2, placeholder="Name of pathology for which you want to define custom observations", label='Pathology:'),
             gr.inputs.Textbox(lines=2, placeholder="Add your custom (positive) observations separated by a new line"
                                                    "\n Note: Each descriptor will automatically be embedded into our prompt format: There is/are (no) <observation> indicating <pathology>"
                                                    "\n Example:\n\n Opacity\nPleural Effusion\nConsolidation"
                               , label='Custom Observations:')],
+    article=article,
+    description=description,
     outputs=gr.outputs.Image(type="filepath")
 )
 
