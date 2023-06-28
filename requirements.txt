@@ -2,4 +2,4 @@ scikit-learn
 transformers==4.17.0
 gradio==3.34.0
 pandas
-torch==1.13.0+cu116
+torch==1.13.0
