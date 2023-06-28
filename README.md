@@ -66,3 +66,6 @@ run
 ```
 python -m demo
 ```
+
+### Intended Use
+This model is intended to be used solely for (I) future research on visual-language processing and (II) reproducibility of the experimental results reported in the reference paper.
