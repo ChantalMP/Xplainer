@@ -5,7 +5,7 @@
 
 This is the official repository for the paper "Xplainer: From X-Ray Observations to Explainable Zero-Shot Diagnosis", which was accepted for publication at MICCAI 2023.
 
-<img src="figures/model_overview.pdf" alt="pipeline" width="100%"/>
+<img src="figures/model_overview.png" alt="pipeline" width="100%"/>
 
 We propose a new way of explainability for zero-shot diagnosis prediction in the clinical domain. Instead of directly predicting a diagnosis, we prompt the model to classify the existence of descriptive observations, which a radiologist would look for on an X-Ray scan, and use the descriptor probabilities to estimate the likelihood of a diagnosis, making our model explainable by design. For this we leverage BioVil, a pretrained CLIP model for X-rays and apply contrastive observation-based prompting. We evaluate Xplainer on two chest X-ray
 datasets, CheXpert and ChestX-ray14, and demonstrate its effectiveness
