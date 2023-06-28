@@ -50,9 +50,9 @@ def plot_bars(model_output):
 
         # Add a title for the disease
         if data['overall_probability'] >= 0.5:
-            ax.set_title(f"{disease} : probability of {data['overall_probability']:.2f}")
+            ax.set_title(f"{disease} : score of {data['overall_probability']:.2f}")
         else:
-            ax.set_title(f"No {disease} : probability of {data['overall_probability']:.2f}")
+            ax.set_title(f"No {disease} : score of {data['overall_probability']:.2f}")
 
         # make title larger and bold
         ax.title.set_fontsize(15)

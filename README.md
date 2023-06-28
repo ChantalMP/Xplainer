@@ -34,8 +34,11 @@ Demo: https://huggingface.co/spaces/Chantal/Xplainer
 2. Install requirements:
    
    - use Python 3.7
+   - if on cpu change the last line in requirements.txt from 'torch==1.13.0+cu116' to 'torch==1.13.0', on gpu adapt to your cuda version
    - install requirements:
    ```
+   conda create -n xplainer_env python=3.7
+   conda activate xplainer_env
    pip install hi-ml-multimodal==0.1.2
    pip install -r requirements.txt
    ```
