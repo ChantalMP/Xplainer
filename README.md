@@ -17,12 +17,11 @@ in improving the performance and explainability of zero-shot diagnosis.
 Demo: https://huggingface.co/spaces/Chantal/Xplainer
 
 ```
-@inproceedings{pellegrini2023xplainer,
-    title={Xplainer: From X-Ray Observations to Explainable Zero-Shot Diagnosis},
-    author={Pellegrini, Chantal and Keicher, Matthias and Özsoy, Ege and Jiraskova, Petra and Braren, Rickmer and Navab, Nassir},
-    booktitle={International Conference on Medical Image Computing and Computer-Assisted Intervention},
-    year={2023},
-    organization={Springer}
+@article{pellegrini2023xplainer,
+  title={Xplainer: From X-Ray Observations to Explainable Zero-Shot Diagnosis},
+  author={Pellegrini, Chantal and Keicher, Matthias and {\"O}zsoy, Ege and Jiraskova, Petra and Braren, Rickmer and Navab, Nassir},
+  journal={arXiv preprint arXiv:2303.13391},
+  year={2023}
 }
 ```
 
