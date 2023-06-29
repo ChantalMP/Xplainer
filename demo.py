@@ -118,7 +118,7 @@ iface = gr.Interface(
     inputs=[gr.inputs.Image(type="filepath"), gr.inputs.CheckboxGroup(
         choices=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
                  'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices',
-                 'Infiltration', 'Mass', 'Nodule', 'Emphysema', 'Fibrosis', 'Pleural_Thickening', 'Hernia',
+                 'Infiltration', 'Mass', 'Nodule', 'Emphysema', 'Fibrosis', 'Pleural Thickening', 'Hernia',
                  'Custom'],
         default=['Enlarged Cardiomediastinum', 'Cardiomegaly', 'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
                  'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other', 'Fracture', 'Support Devices'],
