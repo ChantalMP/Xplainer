@@ -53,7 +53,11 @@ in improving the performance and explainability of zero-shot diagnosis.
    ChestXRay14:
    - download data from 'https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345'
    - use the script 'preprocess_chestxray14' to download the data
-   - copy 'images_jpg', 'test_list.txt' and 'Data_Entry_2017_v2020.csv' into 'data/chestxray14'
+   - copy 'images', 'test_list.txt' and 'Data_Entry_2017_v2020.csv' into 'data/chestxray14'
+   - run
+     ```
+      python -m preprocesss_chestxray14
+     ```
 
 ### Reproduce our results:
 run
