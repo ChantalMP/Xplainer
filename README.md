@@ -1,6 +1,6 @@
 # Xplainer: From X-Ray Observations to Explainable Zero-Shot Diagnosis
 **Online Demo:** [![](https://img.shields.io/badge/🤗-Open_Gradio_Demo-blue)](https://huggingface.co/spaces/CAMP-ViL/Xplainer)
-**Paper**: [![](https://img.shields.io/badge/Paper-2303.13391-blue)](https://arxiv.org/pdf/2303.13391.pdf)
+**Paper**: [![](https://img.shields.io/badge/Springer-978_3_031_43904_9-blue)](https://link.springer.com/chapter/10.1007/978-3-031-43904-9_41) [![](https://img.shields.io/badge/Arxiv-2303.13391-blue)](https://arxiv.org/pdf/2303.13391.pdf)
 
 
 This is the official repository for the paper "Xplainer: From X-Ray Observations to Explainable Zero-Shot Diagnosis", which was accepted for publication at MICCAI 2023.
